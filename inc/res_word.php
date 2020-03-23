@@ -19,6 +19,7 @@ if ( isset($_POST) && !empty($_POST) )
         '".$res_word."')");
 
 
+
     // print_r($wpdb); 
     // exit();
 if ($res == TRUE) {
