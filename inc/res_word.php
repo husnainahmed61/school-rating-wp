@@ -18,8 +18,7 @@ if ( isset($_POST) && !empty($_POST) )
     $res = $wpdb->query("INSERT INTO ".$table_name."(`res_words`) VALUES (
         '".$res_word."')");
 
-
-
+    
     // print_r($wpdb); 
     // exit();
 if ($res == TRUE) {
