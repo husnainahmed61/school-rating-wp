@@ -800,6 +800,9 @@ else
     <div class="col-sm-6 post" style="cursor: pointer;">
         <div class="card mb-3" >
             <div class="row custom-row" style="margin-left:0px;">
+                <div class="d-block d-sm-none text-center">
+                    <h3 class="card-title"><?=$value->school_name;?></h3>
+                </div>
                 <div class="col-md-4"> <img src="<?=$value->school_image;?>" class="school-image" alt="school-image"> </div>
                 <div class="col-md-8">
                     <div class="card-body target" data_id="<?=$value->id?>">
@@ -807,7 +810,10 @@ else
                         <span class="float-right"><i class="text-warning fa fa-star"></i></span>
                         <span class="float-right"><i class="text-warning fa fa-star"></i></span>
                         <span class="float-right"><i class="text-warning fa fa-star"></i></span> -->
-                        <h3 class="card-title" style="text-align: inherit;"><?=$value->school_name;?></h3>
+                        <div class="d-none d-sm-block">
+                            <h3 class="card-title" style="text-align: inherit;"><?=$value->school_name;?></h3>
+                        </div>
+
                         <?php
                         $table_name = $wpdb->prefix . "schools_rating";
                         //$results = $wpdb->get_results( "SELECT * FROM ".$table_name."", OBJECT );
