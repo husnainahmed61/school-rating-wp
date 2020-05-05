@@ -434,9 +434,9 @@ $(document).ready(function(){
 jQuery(document).ready(function() {
     $('#parent_div').on('click', '.target', function() {
 	   $("#titel").hide(); // Hide page titel when opening the Rating fields
-	   $(".trennlinie").hide(); // Hide page titel when opening the Rating fields
+	   // $(".trennlinie").hide(); // Hide page titel when opening the Rating fields
 	   $("#world-map").hide(); // Hide map when opening the Rating fields
-	   $(".col-md-4").hide(); // Hide Schulform when opening the Rating fields
+	   // $(".col-md-4").hide(); // Hide Schulform when opening the Rating fields
 		jQuery('html,body').animate({ scrollTop: 0 }, 'slow'); //scroll to top when rating fields gets opened
 	   
 			
@@ -796,55 +796,37 @@ else
     // print_r($value);
     // exit;
 ?>
-
-    <div class="col-sm-6 post" style="cursor: pointer;">
-        <div class="card mb-3" >
-            <div class="row custom-row" style="margin-left:0px;">
-                <div class="d-block d-sm-none text-center">
-                    <h3 class="card-title"><?=$value->school_name;?></h3>
-                </div>
-                <div class="col-md-4"> <img src="<?=$value->school_image;?>" class="school-image" alt="school-image"> </div>
-                <div class="col-md-8">
-                    <div class="card-body target" data_id="<?=$value->id?>">
-                        <!-- <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                        <span class="float-right"><i class="text-warning fa fa-star"></i></span> -->
-                        <div class="d-none d-sm-block">
-                            <h3 class="card-title" style="text-align: inherit;"><?=$value->school_name;?></h3>
-                        </div>
-
-                        <?php
-                        $table_name = $wpdb->prefix . "schools_rating";
-                        //$results = $wpdb->get_results( "SELECT * FROM ".$table_name."", OBJECT );
-                        $res =  $wpdb->get_results("SELECT AVG(average_rating) AS average FROM ".$table_name." WHERE school_id =".$value->id);
-                        // echo "<pre>";
-                        // print_r($res[0]->average);
-                        $average = round($res[0]->average);
-                        $rem_rat = 5-$average;
-                        for ($i=0; $i <$average ; $i++) { ?>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                        <?php } for ($i=0; $i <$rem_rat ; $i++) { ?>
-                            <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <?php  }
-                        ?>
-
-                        <!-- <i class="fa fa-star-o" aria-hidden="true"></i>
-                         <i class="fa fa-star-half-o" aria-hidden="true"></i> -->
-                               <p class="card-text">Schulform: <?=$value->type_of_school;?></p>
-                        <p class="card-text"><small class="text-muted">Adresse: <?=$value->school_Address.', '.$value->country_code;?></small></p>
+     <div class="col-md-4 col-sm-12 post" style="cursor: pointer; margin-bottom: 10px;">
+         <div class="card" >
+             <img class="card-img-top" style="width: 100%;height: 40vw;object-fit: cover;" src="<?=$value->school_image;?>" alt="Card image cap">
+             <div class="card-body target" data_id="<?=$value->id?>">
+                 <h5 class="card-title"><?=$value->school_name;?></h5>
+                 <?php
+                 $table_name = $wpdb->prefix . "schools_rating";
+                 //$results = $wpdb->get_results( "SELECT * FROM ".$table_name."", OBJECT );
+                 $res =  $wpdb->get_results("SELECT AVG(average_rating) AS average FROM ".$table_name." WHERE school_id =".$value->id);
+                 // echo "<pre>";
+                 // print_r($res[0]->average);
+                 $average = round($res[0]->average);
+                 $rem_rat = 5-$average;
+                 for ($i=0; $i <$average ; $i++) { ?>
+                     <i class="fa fa-star" aria-hidden="true"></i>
+                 <?php } for ($i=0; $i <$rem_rat ; $i++) { ?>
+                     <i class="fa fa-star-o" aria-hidden="true"></i>
+                 <?php  }
+                 ?>
+                 <p class="card-text">Schulform: <?=$value->type_of_school;?></p>
+                 <p class="card-text"><small class="text-muted">Adresse: <?=$value->school_Address.', '.$value->country_code;?></small></p>
+<!--                 <a href="#" class="btn btn-primary">Go somewhere</a>-->
+                 <form method="get" action="" class="bewertung_button">
+                     <input type="hidden" name="school_id" value="<?=$value->id?>">
+                            <button id="ratings_lesen" type="submit" style="font-size: 16px; padding: 5px 20px;-webkit-border-radius: 4px;";>Bewertungen lesen</button>
+                 </form>
+             </div>
+         </div>
+     </div>
 
 
-                    </div>
-                    <form method="get" action="" class="bewertung_button">
-                        <input type="hidden" name="school_id" value="<?=$value->id?>">
-                               <button id="ratings_lesen" type="submit" style="font-size: 16px; padding: 5px 20px;-webkit-border-radius: 4px;";>Bewertungen lesen</button>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
 
 <?php
 }
@@ -866,10 +848,13 @@ else
 
 <div id="rating_div" class="value_id" style="display: none;">
     <div class="container">
-        <div class="row" style="margin-top: 20px">
-            <div class="col-sm-12 col-sm-offset-4" >
+        <div class="row" >
+            <div class="col-sm-4">
+                <button class="btn btn-primary back_button">Back</button>
+            </div>
+            <div class="col-sm-12 col-md-6 col-md-offset-2" >
                 <div class="form-group" >
-                  <input class="col-sm-4" type="text" name="user_email" id="user_email" placeholder="&#9993; Mail-Adresse" autocomplete="on">
+                  <input class="" type="text" name="user_email" id="user_email" placeholder="&#9993; Mail-Adresse" autocomplete="on">
                 </div>
                 
             </div>
