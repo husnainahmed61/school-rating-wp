@@ -798,7 +798,7 @@ else
 ?>
      <div class="col-md-4 col-sm-12 post" style="cursor: pointer; margin-bottom: 10px;">
          <div class="card" >
-             <img class="card-img-top" style="width: 100%;height: 40vw;object-fit: cover;" src="<?=$value->school_image;?>" alt="Card image cap">
+             <img class="card-img-top target" style="width: 100%;height: 40vw;object-fit: cover;" src="<?=$value->school_image;?>" alt="Card image cap">
              <div class="card-body target" data_id="<?=$value->id?>">
                  <h5 class="card-title"><?=$value->school_name;?></h5>
                  <?php
@@ -818,11 +818,12 @@ else
                  <p class="card-text">Schulform: <?=$value->type_of_school;?></p>
                  <p class="card-text"><small class="text-muted">Adresse: <?=$value->school_Address.', '.$value->country_code;?></small></p>
 <!--                 <a href="#" class="btn btn-primary">Go somewhere</a>-->
-                 <form method="get" action="" class="bewertung_button">
-                     <input type="hidden" name="school_id" value="<?=$value->id?>">
-                            <button id="ratings_lesen" type="submit" style="font-size: 16px; padding: 5px 20px;-webkit-border-radius: 4px;";>Bewertungen lesen</button>
-                 </form>
+
              </div>
+             <form method="get" action="" class="bewertung_button">
+                 <input type="hidden" name="school_id" value="<?=$value->id?>">
+                        <button id="ratings_lesen" type="submit" style="font-size: 16px; padding: 5px 20px;-webkit-border-radius: 4px;";>Bewertungen lesen</button>
+             </form>
          </div>
      </div>
 
