@@ -4,7 +4,7 @@ require_once( str_replace('//','/',dirname(__FILE__).'/') .'../../../../wp-confi
 global $wpdb;
 
 $row = $_POST['row'];
-$rowperpage = 14;
+$rowperpage = 15;
 $table_name = $wpdb->prefix . "schools";
 
     $results =  $wpdb->get_results("SELECT * FROM $table_name ORDER BY country_code limit ".$row.",".$rowperpage);  
