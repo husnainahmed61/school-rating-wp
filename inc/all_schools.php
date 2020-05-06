@@ -190,7 +190,7 @@ $type = $_GET['type'];
   font-size: 21px;
 }
     .card{
-        height: 70vh;
+        height: 100vh;
     }
 }
 
@@ -860,7 +860,7 @@ else
 <div id="rating_div" class="value_id" style="display: none;">
     <div class="container">
         <div class="row" >
-            <div class="col-sm-4">
+            <div class="col-sm-4" style="padding: 15px">
                 <button class="btn btn-primary back_button">Back</button>
             </div>
             <div class="col-sm-12 col-md-6 col-md-offset-2" >
