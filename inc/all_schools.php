@@ -782,7 +782,7 @@ else
              
         }
         else{
-             $rowperpage = 14;
+             $rowperpage = 15;
              $main_page = 1;
              $results =  $wpdb->get_results("SELECT * FROM ".$table_name." ORDER BY country_code limit 0,".$rowperpage);
 
