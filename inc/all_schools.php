@@ -170,6 +170,9 @@ $type = $_GET['type'];
           h2 {
   font-size: 24px;
 }
+    .card{
+        height: 190vh;
+    }
 }
 
 /* 
@@ -186,6 +189,9 @@ $type = $_GET['type'];
           h2 {
   font-size: 21px;
 }
+    .card{
+        height: 70vh;
+    }
 }
 
 /* 
@@ -199,6 +205,9 @@ $type = $_GET['type'];
   h3 {
   font-size: 21px;
 }
+  .card{
+      height: 70vh;
+  }
 }
 
 /* Load more */
