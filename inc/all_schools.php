@@ -19,7 +19,7 @@ $type = $_GET['type'];
 
     if (empty($_GET['school_id'])) { ?>
         
-        <div class="row">
+        <div class="row map-box">
     <div class="col-md-8">
         <div id="world-map" style="height: 250px; margin-top:20px"></div>        
     </div>
@@ -444,8 +444,8 @@ jQuery(document).ready(function() {
     $('#parent_div').on('click', '.target', function() {
 	   $("#titel").hide(); // Hide page titel when opening the Rating fields
 	   // $(".trennlinie").hide(); // Hide page titel when opening the Rating fields
-	   $("#world-map").hide(); // Hide map when opening the Rating fields
-	   // $(".col-md-4").hide(); // Hide Schulform when opening the Rating fields
+	   //$("#world-map").hide(); // Hide map when opening the Rating fields
+	   $(".map-box").hide(); // Hide Schulform when opening the Rating fields
 		jQuery('html,body').animate({ scrollTop: 0 }, 'slow'); //scroll to top when rating fields gets opened
 	   
 			
@@ -466,6 +466,7 @@ jQuery( ".back_button" ).click(function() {
   //alert( "Handler for .click() called." );
   jQuery("#main_div").show(500);
   jQuery("#search_div").show(500);
+    jQuery(".map-box").show(500);
   jQuery("#rating_div").hide(500);
   jQuery(".back_button").hide(500);
 
