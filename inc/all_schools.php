@@ -171,7 +171,7 @@ $type = $_GET['type'];
   font-size: 24px;
 }
     .card{
-        height: 190vh;
+        height: 135vh;
     }
 }
 
@@ -829,7 +829,7 @@ else
 <!--                 <a href="#" class="btn btn-primary">Go somewhere</a>-->
 
              </div>
-             <form method="get" action="" class="bewertung_button">
+             <form method="get" action="" class="bewertung_button" style="padding: 5px;">
                  <input type="hidden" name="school_id" value="<?=$value->id?>">
                         <button id="ratings_lesen" type="submit" style="font-size: 16px; padding: 5px 20px;-webkit-border-radius: 4px;";>Bewertungen lesen</button>
              </form>
