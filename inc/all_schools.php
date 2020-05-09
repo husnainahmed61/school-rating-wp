@@ -407,7 +407,7 @@ if (empty($_GET['school_id'])) { ?>
         $('.load-more').click(function(){
             var row = Number($('#row').val());
             var allcount = Number($('#all').val());
-            var rowperpage = 14;
+            var rowperpage = 15;
             row = row + rowperpage;
 
             if(row <= allcount){
