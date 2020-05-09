@@ -75,19 +75,25 @@ if(isset($_POST['delete_rating']))
             $i = 1;
             foreach ($all_results as $key => $value) { ?>
            
-            <tr>
+            <tr <?php if (in_array(strtolower($value->q1_comment), $arr_word) ||
+                in_array(strtolower($value->q2_comment), $arr_word) ||
+                in_array(strtolower($value->q3_comment), $arr_word) ||
+                in_array(strtolower($value->q4_comment), $arr_word) ||
+                in_array(strtolower($value->main_comment), $arr_word)
+            ) { echo "style='background-color:#E57373;'";}  ?>>
+
                 <th><?=$i?></th>
                 <td><?=$value->school_name?></td>
                 <td><?=$value->user_email?></td>
-                <td <?php if (in_array(strtolower($value->q1_comment), $arr_word)) { echo "style='background-color:red'";}  ?>><?=$value->q1_comment?></td>
+                <td ><?=$value->q1_comment?></td>
                 <td><?=$value->q1_rating?></td>
-                <td <?php if (in_array(strtolower($value->q2_comment), $arr_word)) { echo "style='background-color:red'";}  ?>><?=$value->q2_comment?></td>
+                <td ><?=$value->q2_comment?></td>
                 <td><?=$value->q2_rating?></td>
-                <td <?php if (in_array(strtolower($value->q3_comment), $arr_word)) { echo "style='background-color:red'";}  ?>><?=$value->q3_comment?></td>
+                <td ><?=$value->q3_comment?></td>
                 <td><?=$value->q3_rating?></td>
-                <td <?php if (in_array(strtolower($value->q4_comment), $arr_word)) { echo "style='background-color:red'";}  ?>><?=$value->q4_comment?></td>
+                <td ><?=$value->q4_comment?></td>
                 <td><?=$value->q4_rating?></td>
-                <td <?php if (in_array(strtolower($value->main_comment), $arr_word)) { echo "style='background-color:red'";}  ?>><?=$value->main_comment?></td>
+                <td ><?=$value->main_comment?></td>
                 <td><?=$value->average_rating?></td>
                 <td><?=$value->created_at?></td>
                 <td><form method="post" action="">
