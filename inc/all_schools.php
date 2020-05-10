@@ -483,6 +483,8 @@ if (empty($_GET['school_id'])) { ?>
             jQuery(".back_button").show(500);
 
             var id = jQuery(this).attr("data_id");
+
+            alert(id);
             jQuery(".formData").val(id);
             // jQuery(this).attr("value_id").val(id);
             // jQuery(".data_id").val("Dolly Duck");
