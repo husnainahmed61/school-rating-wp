@@ -7,12 +7,13 @@ $row = $_POST['row'];
 $rowperpage = 15;
 $table_name = $wpdb->prefix . "schools";
 
+$img_src = "this.src='https://gradeyourschool.at/wp-content/uploads/2019/09/school.png';";
 $results =  $wpdb->get_results("SELECT * FROM $table_name ORDER BY country_code limit ".$row.",".$rowperpage);
 $html = '';
 foreach ($results as $key => $value) {
     $html .= '<div class="col-md-4 col-sm-12 post" style="cursor: pointer; margin-bottom: 10px;">';
     $html .= '<div class="card" >';
-    $html .= '<center><img class="card-img-top target" style="width: auto;height: 200px;object-fit: cover;" src="'.$value->school_image.'" alt="Leider wurde kein passendes Bild für diese Schule gefunden!" onerror="this.src="https://gradeyourschool.at/wp-content/uploads/2019/09/school.png";"/></center>';
+    $html .= '<center><img class="card-img-top target" style="width: auto;height: 200px;object-fit: cover;" src="'.$value->school_image.'" alt="Leider wurde kein passendes Bild für diese Schule gefunden!" onerror="'.$img_src.'"/></center>';
     $html .= '<div class="card-body target" data_id="'.$value->id.'">';
     $html .= '<h5 class="card-title">'.$value->school_name.'</h5>';
     $table_name = $wpdb->prefix . "schools_rating";
