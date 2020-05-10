@@ -836,9 +836,9 @@ else{
             // exit;
             ?>
             <div class="col-md-4 col-sm-12 post" style="cursor: pointer; margin-bottom: 10px;">
-                <div class="card" >
-                    <center><img class="card-img-top target" data-id="<?=$value->id?>" style="width: auto;height: 200px;object-fit: cover;" src="<?=$value->school_image;?>" alt="Leider wurde kein passendes Bild für diese Schule gefunden!" onerror="this.src='https://gradeyourschool.at/wp-content/uploads/2019/09/school.png';"/></center>
-                    <div class="card-body target" data-id="<?=$value->id?>">
+                <div class="card target"  data-id="<?=$value->id?>" >
+                    <center><img class="card-img-top" style="width: auto;height: 200px;object-fit: cover;" src="<?=$value->school_image;?>" alt="Leider wurde kein passendes Bild für diese Schule gefunden!" onerror="this.src='https://gradeyourschool.at/wp-content/uploads/2019/09/school.png';"/></center>
+                    <div class="card-body">
                         <h5 class="card-title"><?=$value->school_name;?></h5>
                         <?php
                         $table_name = $wpdb->prefix . "schools_rating";
