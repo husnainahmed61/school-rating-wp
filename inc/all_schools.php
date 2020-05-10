@@ -482,7 +482,7 @@ if (empty($_GET['school_id'])) { ?>
             jQuery("#rating_div").show(500);
             jQuery(".back_button").show(500);
 
-            var id = jQuery(this).attr("data_id");
+            var id = $(this).data('id');
 
             alert(id);
             jQuery(".formData").val(id);
@@ -840,7 +840,7 @@ else{
             <div class="col-md-4 col-sm-12 post" style="cursor: pointer; margin-bottom: 10px;">
                 <div class="card" >
                     <center><img class="card-img-top target" style="width: auto;height: 200px;object-fit: cover;" src="<?=$value->school_image;?>" alt="Leider wurde kein passendes Bild für diese Schule gefunden!" onerror="this.src='https://gradeyourschool.at/wp-content/uploads/2019/09/school.png';"/></center>
-                    <div class="card-body target" data_id="<?=$value->id?>">
+                    <div class="card-body target" data-id="<?=$value->id?>">
                         <h5 class="card-title"><?=$value->school_name;?></h5>
                         <?php
                         $table_name = $wpdb->prefix . "schools_rating";
