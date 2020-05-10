@@ -836,29 +836,31 @@ else{
             // exit;
             ?>
             <div class="col-md-4 col-sm-12 post" style="cursor: pointer; margin-bottom: 10px;">
-                <div class="card target"  data-id="<?=$value->id?>" >
-                    <center><img class="card-img-top" style="width: auto;height: 200px;object-fit: cover;" src="<?=$value->school_image;?>" alt="Leider wurde kein passendes Bild für diese Schule gefunden!" onerror="this.src='https://gradeyourschool.at/wp-content/uploads/2019/09/school.png';"/></center>
-                    <div class="card-body">
-                        <h5 class="card-title"><?=$value->school_name;?></h5>
-                        <?php
-                        $table_name = $wpdb->prefix . "schools_rating";
-                        //$results = $wpdb->get_results( "SELECT * FROM ".$table_name."", OBJECT );
-                        $res =  $wpdb->get_results("SELECT AVG(average_rating) AS average FROM ".$table_name." WHERE school_id =".$value->id);
-                        // echo "<pre>";
-                        // print_r($res[0]->average);
-                        $average = round($res[0]->average);
-                        $rem_rat = 5-$average;
-                        for ($i=0; $i <$average ; $i++) { ?>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                        <?php } for ($i=0; $i <$rem_rat ; $i++) { ?>
-                            <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <?php  }
-                        ?>
+                <div class="card" >
+                    <div class="target" data-id="<?=$value->id?>" >
+                        <center><img class="card-img-top" style="width: auto;height: 200px;object-fit: cover;" src="<?=$value->school_image;?>" alt="Leider wurde kein passendes Bild für diese Schule gefunden!" onerror="this.src='https://gradeyourschool.at/wp-content/uploads/2019/09/school.png';"/></center>
+                        <div class="card-body">
+                            <h5 class="card-title"><?=$value->school_name;?></h5>
+                            <?php
+                            $table_name = $wpdb->prefix . "schools_rating";
+                            //$results = $wpdb->get_results( "SELECT * FROM ".$table_name."", OBJECT );
+                            $res =  $wpdb->get_results("SELECT AVG(average_rating) AS average FROM ".$table_name." WHERE school_id =".$value->id);
+                            // echo "<pre>";
+                            // print_r($res[0]->average);
+                            $average = round($res[0]->average);
+                            $rem_rat = 5-$average;
+                            for ($i=0; $i <$average ; $i++) { ?>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            <?php } for ($i=0; $i <$rem_rat ; $i++) { ?>
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <?php  }
+                            ?>
 
-                        <p class="card-text" title="Wähle zuerst ein Bundesland aus!">Schulform: <?=$value->type_of_school;?></p>
-                        <p class="card-text"><small class="text-muted">Adresse: <?=$value->school_Address.', '.$value->country_code;?></small></p>
-                        <!--                 <a href="#" class="btn btn-primary">Go somewhere</a>-->
+                            <p class="card-text" title="Wähle zuerst ein Bundesland aus!">Schulform: <?=$value->type_of_school;?></p>
+                            <p class="card-text"><small class="text-muted">Adresse: <?=$value->school_Address.', '.$value->country_code;?></small></p>
+                            <!--                 <a href="#" class="btn btn-primary">Go somewhere</a>-->
 
+                        </div>
                     </div>
                     <form method="get" action="" class="bewertung_button" style="padding: 5px;">
                         <input type="hidden" name="school_id" value="<?=$value->id?>">
