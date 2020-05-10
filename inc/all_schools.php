@@ -483,8 +483,6 @@ if (empty($_GET['school_id'])) { ?>
             jQuery(".back_button").show(500);
 
             var id = $(this).data('id');
-
-            alert(id);
             jQuery(".formData").val(id);
             // jQuery(this).attr("value_id").val(id);
             // jQuery(".data_id").val("Dolly Duck");
@@ -528,8 +526,8 @@ if (empty($_GET['school_id'])) { ?>
                 })
                 return;
             }
-            alert(school_id);
-            return;
+            // alert(school_id);
+            // return;
 
             var submit = 'submit';
             jQuery.ajax({
@@ -839,7 +837,7 @@ else{
             ?>
             <div class="col-md-4 col-sm-12 post" style="cursor: pointer; margin-bottom: 10px;">
                 <div class="card" >
-                    <center><img class="card-img-top target" style="width: auto;height: 200px;object-fit: cover;" src="<?=$value->school_image;?>" alt="Leider wurde kein passendes Bild für diese Schule gefunden!" onerror="this.src='https://gradeyourschool.at/wp-content/uploads/2019/09/school.png';"/></center>
+                    <center><img class="card-img-top target" data-id="<?=$value->id?>" style="width: auto;height: 200px;object-fit: cover;" src="<?=$value->school_image;?>" alt="Leider wurde kein passendes Bild für diese Schule gefunden!" onerror="this.src='https://gradeyourschool.at/wp-content/uploads/2019/09/school.png';"/></center>
                     <div class="card-body target" data-id="<?=$value->id?>">
                         <h5 class="card-title"><?=$value->school_name;?></h5>
                         <?php
