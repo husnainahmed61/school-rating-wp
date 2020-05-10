@@ -526,8 +526,8 @@ if (empty($_GET['school_id'])) { ?>
                 })
                 return;
             }
-            alert(school_id);
-            return;
+            // alert(school_id);
+            // return;
 
             var submit = 'submit';
             jQuery.ajax({
